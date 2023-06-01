@@ -1,12 +1,15 @@
 from flask import Flask
-import tracks.tracks as tracks
+import tracks.combine as combine
 app = Flask(__name__)
 
-file=open("html/player/final.html","r")
-site=file.read()
+
 @app.route('/')
 def hello():
+    combine.run()
+    file = open("html/player/final.html", "r")
+    site = file.read()
     return site
+
 
 if __name__ == '__main__':
     app.run()
