@@ -1,6 +1,5 @@
 
-import tracks
-from tracks import playlists
+from music import tracks,playlists
 def create():
     destroy = open("html/player/final.html", "w")
     destroy.write("")

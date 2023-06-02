@@ -1,11 +1,11 @@
 from flask import Flask
-import tracks.combine as combine
+import music.combine as combine
 app = Flask(__name__)
 
 
 @app.route('/')
 def hello():
-    combine.run()
+    combine.create()
     file = open("html/player/final.html", "r")
     site = file.read()
     return site

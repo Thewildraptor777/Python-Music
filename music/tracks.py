@@ -1,4 +1,4 @@
-import data
+from music import data
 
 
 def create():

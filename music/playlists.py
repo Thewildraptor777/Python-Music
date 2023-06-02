@@ -19,7 +19,7 @@ def create():
     file = open("html/player/final.html", "a")
     # Print the table names
     for table in tables:
-        file.write(table[0])
+        file.write(table[0]+" ")
 
     # Close the cursor and connection
     mycursor.close()

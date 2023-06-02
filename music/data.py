@@ -9,6 +9,6 @@ mydb = mysql.connector.connect(
 
 mycursor = mydb.cursor()
 
-mycursor.execute("SELECT * FROM tracks")
+mycursor.execute("SELECT * FROM Slime")
 
 myresult = mycursor.fetchall()
