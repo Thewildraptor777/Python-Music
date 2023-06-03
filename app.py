@@ -2,7 +2,7 @@ import music.database
 from flask import Flask, render_template, request, jsonify, json
 app = Flask(__name__)
 
-current_playlist="Slime"
+current_playlist="tracks"
 playlist_data = music.database.connect(
     "localhost", "musicsite", "MGZGvCFtmGN*1OUM", "music", f"SELECT * FROM {current_playlist}")
 output_playlist = []

@@ -3,7 +3,7 @@ const tracks = tracksList.getElementsByTagName("li"); const total = document.get
 const playButtonDiv = document.getElementById("play-button-div"); const pauseButtonDiv = document.getElementById("pause-button-div");
 const playButton = document.getElementById("play-button"); const pauseButton = document.getElementById("pause-button");
 const audio = document.getElementById("audio");
-let i = 0
+let curentIndex = 0
 let shuffle = false;
 playButton.addEventListener("click", () => {
     pauseButtonDiv.classList.remove("clear")
@@ -32,18 +32,24 @@ shuffleButton.addEventListener("click", () => {
 
 })
 
-function next() {
-    if (shuffle = true) {
+function next() {    
+   // document.getElementById("title").innerHTML=playlistData[curentIndex][3]
+
+    if (shuffle == true) {
         let randIndex = Math.floor(Math.random() * playlistData.length);
-        i = randIndex
-        audio.src = links[i]
+        curentIndex = randIndex
+        audio.src = links[curentIndex]
 
     } else {
 
 
-        i++
-        audio.src = links[i]
-    }
+        curentIndex++
+        audio.src = links[curentIndex]
+    }    
+    document.getElementById("title").innerHTML= playlistData[curentIndex][3];
+    document.getElementById("artist").innerHTML= playlistData[curentIndex][4];
+    document.getElementById("music-image").src= playlistData[curentIndex][2];
+
 }
 audio.onended = () => {
     next();
@@ -51,12 +57,17 @@ audio.onended = () => {
 
 audio.addEventListener('loadedmetadata', function () {
     var duration = audio.duration;
-    console.log(duration)
-    var temp = duration / 60
-    const roundedNumber = temp.toFixed(2);
-    
-    console.log(roundedNumber);
+    //console.log(duration)
+        
+    const minutes = Math.floor(duration / 60);
+    const seconds = Math.floor(duration % 60);
+    //console.log(seconds)
+    let final=minutes.toString()+"."+seconds.toString()
+    //console.log(final);
     
 
-    document.getElementById("length").innerHTML = "Length:" + roundedNumber;
+    document.getElementById("length").innerHTML = "Length:" + final;
+    document.getElementById("title").innerHTML= playlistData[curentIndex][3];
+    document.getElementById("artist").innerHTML= playlistData[curentIndex][4];
+    document.getElementById("music-image").src= playlistData[curentIndex][2];
 });
