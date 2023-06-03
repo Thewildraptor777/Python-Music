@@ -2,7 +2,10 @@ import music.database
 from flask import Flask, render_template, request, jsonify, json
 app = Flask(__name__)
 
-current_playlist="tracks"
+
+
+current_playlist="Slime"
+
 playlist_data = music.database.connect(
     "localhost", "musicsite", "MGZGvCFtmGN*1OUM", "music", f"SELECT * FROM {current_playlist}")
 output_playlist = []
@@ -20,7 +23,7 @@ for temp in playlist_choices:
     for text in temp:
         final+=" "+text
 @app.route('/')
-def display_songs():
+def display_site():
     info = converted_text
 
     return render_template('index.html', songs=output_playlist,info=info,choices=final)
