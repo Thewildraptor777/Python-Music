@@ -111,7 +111,7 @@ img {
 .horizontal {
     display: flex;
     flex-direction: row;
-}
+align-items: flex-start;}
 
 .button-box {
     display: flex;
@@ -123,4 +123,7 @@ img {
 .button-div {
     margin: 1%;
     width: 100%;
+}
+.sendButton:hover{
+    color:blue
 }

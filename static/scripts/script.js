@@ -119,11 +119,15 @@ function next() {
 function prev() {
     if (currentIndex == 0) {
         out = true
+        audio.pause()
+        playButtonDiv.classList.remove("clear")
+        pauseButtonDiv.classList.add("clear")
     }
     if (currentIndex == playlistData.length) {
         out = false
     }
-    if (out == true) { document.getElementById('no-more').innerHTML = "no more" } else {
+    if (out == true) {  document.getElementById('no-more').innerHTML = "no more";playButtonDiv.classList.add("clear");
+    pauseButtonDiv.classList.remove("clear"); } else {
         pauseButtonDiv.classList.remove("clear")
         playButtonDiv.classList.add("clear")
         audio.play()
