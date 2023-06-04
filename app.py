@@ -4,6 +4,7 @@ from apscheduler.schedulers.background import BackgroundScheduler
 
 app = Flask(__name__)
 
+global current_playlist
 current_playlist = "Slime"
 
 def update_playlist():
