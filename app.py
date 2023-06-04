@@ -32,5 +32,11 @@ def display_site():
     info = converted_text
     return render_template('index.html', songs=output_playlist, info=info, choices=final)
 
+@app.route("/process_variable")
+def process_variable():
+    variable = request.args.get("variable")
+    response = f"You sent: {variable}"
+    return response
+
 if __name__ == '__main__':
     app.run()

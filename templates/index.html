@@ -7,14 +7,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Music Player</title>
     <script src="https://kit.fontawesome.com/fb27aa5521.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="icon" href="static\icons\icon.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        // Assuming you have a button with an ID of 'sendButton' in your HTML
+        $('#sendButton').click(function() {
+          var myVariable = "Hello, Flask!";
+  
+          $.ajax({
+            url: "/process_variable",
+            data: { variable: myVariable },
+            success: function(response) {
+              console.log("Response from Flask:", response);
+            }
+          });
+        });
+      });
+    </script>
 </head>
 
 <body>
     <div id="data"></div>
     <section id="playlist-section">
+        <button id="sendButton">flask</button>
         <p>playlist selection</p>
         <p id="playlist-selection">
 
