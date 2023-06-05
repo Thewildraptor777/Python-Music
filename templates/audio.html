@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Audio Player</title>
+</head>
+<body>
+    <h1>Audio Player</h1>
+    <ul>
+    {% for filename in audio_files %}
+        <li><a href="{{ url_for('play', filename=filename) }}">{{ filename }}</a></li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
