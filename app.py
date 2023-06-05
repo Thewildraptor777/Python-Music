@@ -90,7 +90,7 @@ UPLOAD_FOLDER = 'audio/'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
-@app.route('/submit', methods=['GET', 'POST'])
+@app.route('/audio/submit', methods=['GET', 'POST'])
 def submit():
     if request.method == 'POST':
         # Check if a file is included in the request
@@ -106,11 +106,10 @@ def submit():
         # Save the file to the upload folder
         audio_file.save(os.path.join(app.config['UPLOAD_FOLDER'], audio_file.filename))
 
-        return 'File uploaded successfully!'
+        return "file uploaded"+'<script>console.log("Before the delay");setTimeout(function() {console.log("After 1 second");window.location.replace("")},1000);</script>'
 
     return render_template('submit.html')
 
 
-    return f"Playing: {filename}"
 if __name__ == '__main__':
     app.run()

@@ -5,6 +5,7 @@
 </head>
 <body>
     <h1>Audio Player</h1>
+    <a href="submit">submit</a>
     <ul>
     {% for filename in audio_files %}
         <li><a href="{{ url_for('play', filename=filename) }}">{{ filename }}</a></li>
