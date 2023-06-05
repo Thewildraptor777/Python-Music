@@ -85,6 +85,9 @@ function updateInfo() {
 }
 
 function next() {
+    if(currentIndex==0){
+        out=false
+    }
     if (out != true) {
         if (shuffle == true) {
             let randIndex = Math.floor(Math.random() * playlistData.length);
@@ -94,8 +97,7 @@ function next() {
             currentIndex++;
             play();
         }
-        pauseButtonDiv.classList.remove("clear");
-        playButtonDiv.classList.add("clear");
+
         play();
     }
 
@@ -120,19 +122,17 @@ function prev() {
     if (currentIndex == 0) {
         out = true;
         pause();
-        playButtonDiv.classList.remove("clear");
-        pauseButtonDiv.classList.add("clear");
+      
     }
     if (currentIndex == playlistData.length) {
         out = false;
     }
     if (out == true) {
         document.getElementById("no-more").innerHTML = "No more";
-        playButtonDiv.classList.add("clear");
-        pauseButtonDiv.classList.remove("clear");
+       pause()
+        console.log(currentIndex)
     } else {
-        pauseButtonDiv.classList.remove("clear");
-        playButtonDiv.classList.add("clear");
+      
         play();
         if (currentIndex == 0) {
             currentIndex = playlistData.length;
@@ -149,7 +149,13 @@ audio.onended = () => {
 };
 
 window.onload = () => {
-    updateInfo();
+  
+
+  audio.src=links[currentIndex]
+  updateInfo();
     length()
+
+
+   
 };
 document.getElementById("total-songs").innerHTML = "Total number of songs:" + playlistData.length.toString()
