@@ -65,7 +65,11 @@ function length() {
     var duration = audio.duration;
     const minutes = Math.floor(duration / 60);
     const seconds = Math.floor(duration % 60);
-    let final = minutes.toString() + "." + seconds.toString();
+    if(seconds.toString().length==1){
+        finalSeconds="0"+seconds.toString()
+    }else{finalSeconds=seconds.toString()}
+    let final = minutes.toString() + "." + finalSeconds;
+
     document.getElementById("length").innerHTML = "Length: " + final;
 }
 
@@ -146,5 +150,6 @@ audio.onended = () => {
 
 window.onload = () => {
     updateInfo();
+    length()
 };
 document.getElementById("total-songs").innerHTML = "Total number of songs:" + playlistData.length.toString()
