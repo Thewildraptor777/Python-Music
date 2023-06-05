@@ -1,4 +1,4 @@
-import music.database
+from music import database
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
@@ -11,7 +11,7 @@ stored_variable = current_playlist
 
 def update_playlist():
     global output_playlist, converted_text
-    playlist_data = music.database.connect(
+    playlist_data = database.connect(
         "localhost", "musicsite", "MGZGvCFtmGN*1OUM", "music", f"SELECT * FROM {current_playlist}")
     output_playlist = []
     for song in playlist_data:
@@ -24,13 +24,13 @@ def update_playlist():
 # Initialize the output_playlist variable before starting the application
 update_playlist()
 
-playlist_choices= music.database.connect(
+playlist_choices= database.connect(
     "localhost", "musicsite", "MGZGvCFtmGN*1OUM", "music", "SHOW TABLES")
-print(playlist_choices[0])
+#print(playlist_choices[0])
 final=""
 for temp in playlist_choices:
     for text in temp:
-        final+=text+"||"
+        final+=text+"  "
 @app.route('/')
 def display_site():
     info = converted_text

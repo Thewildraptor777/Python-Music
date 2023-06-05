@@ -28,7 +28,7 @@
 
                 async function myFunction() {
                     // Code before the delay
-                    await wait(50);
+                    await wait(500);
                     // Code to execute after the delay
                     window.location.reload();
                 }
@@ -74,19 +74,23 @@
         </div>
     </section>
     <section id="music-section">
-        <div id="music-info">
-            <img id="music-image" src="">
-            <p id="title" class="music-p">Title:
-            </p>
+        <div class="horizontal" id="music-info">
+         <img id="music-image" src="">
+       
+            <div>
+                <p id="title" class="music-p">Title:
+                </p>
 
 
 
-            <p id="artist" class="music-p"> Artist: </p>
-            <p id="queue">todo</p>
+                <p id="artist" class="music-p"> Artist: </p>
+                <p id="queue">todo</p>
+            </div>
+
         </div>
         <div>
             <section id="controls-section">
-                <audio id="audio"
+                <audio preload="metadata" id="audio"
                     src="https://cdn.glitch.global/cd6fb2ed-715d-4dc3-ac15-e67735a547a2/01-Mundane%20cityscape.mp3?v=1685491608165">
                 </audio>
                 <div class="button-box">
@@ -147,7 +151,7 @@
 </script>
 <script>
     var playlistString = "{{choices}}";
-    var playlistChoices = playlistString.split("||").filter(item => item !== "");
+    var playlistChoices = playlistString.split("  ").filter(item => item !== "");
     console.log(playlistChoices);
 
 </script>
