@@ -1,6 +1,6 @@
 
 import mysql.connector
-def connect(host , username, password,db_name,sql_function):#"SELECT * FROM Slime"
+def connect(host , username, password,db_name,sql_function):
         
     database = mysql.connector.connect(
         host=host,
