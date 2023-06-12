@@ -1,4 +1,4 @@
 data
 logs/*.log
 mysql.userdetails.txt
-.vscode/
+.vscode/ 
