@@ -65,7 +65,7 @@ def play_audio(file_path):
     pygame.mixer.music.play()
 
 # Folder containing audio files
-folder_path = 'audio'
+folder_path = 'data/audio'
 
 @app.route('/audio/')
 def index():
@@ -86,7 +86,7 @@ def play(filename):
 
 
 # Set the upload folder path
-UPLOAD_FOLDER = 'audio/'
+UPLOAD_FOLDER = 'data/audio/'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
@@ -109,7 +109,6 @@ def submit():
         return "file uploaded"+'<script>console.log("Before the delay");setTimeout(function() {console.log("After 1 second");window.location.replace("")},1000);</script>'
 
     return render_template('submit.html')
-
 
 if __name__ == '__main__':
     app.run()
